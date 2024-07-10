@@ -1,0 +1,25 @@
+name: WorkFlow Kube-News
+
+on:
+  push:
+    branches: master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Docker login
+        uses: docker/login-action@v3.2.0
+        with:
+          username: ${{secrets.DOCKER_USER}}
+          password: ${{secrets.DOCKER_PWD}}
+
+      - name: build e push
+        uses: docker/build-push-action@v6.3.0
+        with:
+          file: .
+          push: true
+          tags: |
+            gcrsousa/kube-news:v${{github.run_number}}

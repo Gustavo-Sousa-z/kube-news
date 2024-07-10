@@ -1,0 +1,6 @@
+docker*
+popula-dados.http
+README.md
+.env
+.dockerignore
+Makefile

@@ -19,7 +19,8 @@ jobs:
       - name: build e push
         uses: docker/build-push-action@v6.3.0
         with:
-          file: .
+          context: .
+          file: dockerfile
           push: true
           tags: |
             gcrsousa/kube-news:v${{github.run_number}}

@@ -4,12 +4,12 @@ services:
     build:
       context: .
     ports:
-      - 80:8080
+      - 8080:8080
     environment:
-      - DB_HOST=postgree
-      - DB_DATABASE=db_dados
-      - DB_USERNAME=root
-      - DB_PASSWORD=admin
+      - DB_HOST=${HOST_DB}
+      - DB_DATABASE=${NAME_DB}
+      - DB_USERNAME=${USERNAME_DB}
+      - DB_PASSWORD=${PASSWORD_DB}
     restart: always
     depends_on:
       - postgree
@@ -23,9 +23,9 @@ services:
     ports:
       - 5432:5432
     environment:
-      - POSTGRES_USER=root
-      - POSTGRES_PASSWORD=admin
-      - POSTGRES_DB=db_dados
+      - POSTGRES_DB=${NAME_DB}
+      - POSTGRES_USER=${USERNAME_DB}
+      - POSTGRES_PASSWORD=${PASSWORD_DB}
     networks:
       - news_network
 

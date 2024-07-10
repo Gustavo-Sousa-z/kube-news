@@ -23,4 +23,4 @@ jobs:
           file: dockerfile
           push: true
           tags: |
-            gcrsousa/kube-news:v${{github.run_number}}
+            gcrsousa/kube-news:v1.${{github.run_number}}
